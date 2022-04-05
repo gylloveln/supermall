@@ -39,8 +39,8 @@ import TabControl from "components/content/tabControl/TabControl";
 import BackTop from "components/content/backTop/BackTop";
 import GoodsList from "components/content/goods/GoodsList";
 import { getHomeMultidata, getHomeGoods } from "network/home";
-import {debounce} from "common/utils"
 import Scroll from "components/common/scroll/Scroll";
+import {itemListenerMixin, backTopMixin} from "common/mixin";
 
 export default {
   name: "Home",
@@ -54,6 +54,7 @@ export default {
     Scroll,
     BackTop,
   },
+  mixins:  [itemListenerMixin,backTopMixin],
   data() {
     return {
       banners: [],
@@ -92,11 +93,11 @@ export default {
     this.getHomeGoods("sell");
   },
   mounted(){
-     // 监听item中图片加载完成
-    const refresh = debounce(this.$refs.scroll.refresh,50)
-    this.$bus.$on('itemImageLoad',()=>{
-      refresh()
-    })
+    //  // 监听item中图片加载完成
+    // const refresh = debounce(this.$refs.scroll.refresh,50)
+    // this.$bus.$on('itemImageLoad',()=>{
+    //   refresh()
+    // })
       
   },
   methods: {
