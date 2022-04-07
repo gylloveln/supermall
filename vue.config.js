@@ -5,7 +5,7 @@ function resolve(dir){
 module.exports = { 
     devServer:{
         host:'0.0.0.0',
-        public:'192.168.101.18:8080'
+        public:'192.168.101.16:8080'
     },  
     chainWebpack:(config)=> {
        config.resolve.alias

@@ -8,8 +8,10 @@
       <detail-goods-info :detail-info="detailInfo" @imageLoad="imageLoad"></detail-goods-info>
       <detail-param-info :param-info="paramInfo" ref="params"></detail-param-info>
       <detail-comment-info :comment-info="commentInfo" ref="comment"></detail-comment-info>
-      <goods-list :goods="recommends" ref="recommend"></goods-list>
+      <goods-list :goods="recommends" ref="recommend"></goods-list> 
     </scroll>
+    <detail-bottom-bar @addCart="addToCart"></detail-bottom-bar>
+    <back-top @click.native="backTop" v-show="isShowBackTop"></back-top>
   </div>
 </template>
 
@@ -20,11 +22,13 @@ import DetailBaseInfo from "./childComps/DetailBaseInfo.vue";
 import DetailShopInfo from "./childComps/DetailShopInfo.vue";
 import DetailGoodsInfo from "./childComps/DetailGoodsinfo.vue";
 import DetailParamInfo from "./childComps/DetailParamInfo.vue";
-import DetailCommentInfo from "./childComps/DetailCommentInfo.vue"
+import DetailCommentInfo from "./childComps/DetailCommentInfo.vue";
+import DetailBottomBar from "./childComps/DetailBottomBar.vue"
 import Scroll from "components/common/scroll/Scroll";
 import GoodsList from 'components/content/goods/GoodsList.vue'
 import { getDetail, Goods, Shop, GoodsParam, getRecommend } from "network/detail";
 import {debounce} from "common/utils";
+import {mapActions} from "vuex";
 import {itemListenerMixin, backTopMixin} from "common/mixin";
 export default {
   name: "Detail",
@@ -36,6 +40,7 @@ export default {
     DetailGoodsInfo,
     DetailParamInfo,
     DetailCommentInfo,
+    DetailBottomBar,
     Scroll,
     GoodsList,
   },
@@ -55,6 +60,9 @@ export default {
     };
   },
    methods:{
+     ...mapActions([
+        'addCart'
+      ]),
       imageLoad(){
           this.$refs.scroll.refresh()
           this.getThemeTopYs()
@@ -79,6 +87,23 @@ export default {
           console.log("值："+v+",下标："+index);
         })*/
       },
+      addToCart() {
+        const product = {};
+        product.image = this.topImages[0];
+        product.title = this.goods.title;
+        product.desc = this.goods.desc;
+        product.price = this.goods.realPrice;
+        product.iid = this.iid;
+        console.log(product);
+        //2.将商品添加到购物车里
+        // this.$store.commit('addCart',product)
+        this.addCart(product).then(res=>{
+          this.$toast.show(res, 2000)
+        })
+        // this.$store.dispatch('addCart', product).then(res =>{
+        //   console.log(res)
+        // });
+      }
   },
   created() {
     // 1.保存传入的
@@ -132,7 +157,7 @@ export default {
   height: 100vh;
 }
 .content{
-    height: calc(100% - 44px);
+    height: calc(100% - 44px - 49px);
 }
 .detail-nav {
     position: relative;
