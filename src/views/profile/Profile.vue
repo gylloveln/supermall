@@ -1,127 +1,152 @@
 <template>
-  <div>
-    <scroll class="content">
-      <ul>
-        <li>列表参数1</li>
-        <li>列表参数2</li>
-        <li>列表参数3</li>
-        <li>列表参数4</li>
-        <li>列表参数5</li>
-        <li>列表参数6</li>
-        <li>列表参数7</li>
-        <li>列表参数8</li>
-        <li>列表参数9</li>
-        <li>列表参数10</li>
-        <li>列表参数11</li>
-        <li>列表参数12</li>
-        <li>列表参数13</li>
-        <li>列表参数14</li>
-        <li>列表参数15</li>
-        <li>列表参数16</li>
-        <li>列表参数17</li>
-        <li>列表参数18</li>
-        <li>列表参数19</li>
-        <li>列表参数20</li>
-        <li>列表参数21</li>
-        <li>列表参数22</li>
-        <li>列表参数23</li>
-        <li>列表参数24</li>
-        <li>列表参数25</li>
-        <li>列表参数26</li>
-        <li>列表参数27</li>
-        <li>列表参数28</li>
-        <li>列表参数29</li>
-        <li>列表参数30</li>
-        <li>列表参数31</li>
-        <li>列表参数32</li>
-        <li>列表参数33</li>
-        <li>列表参数34</li>
-        <li>列表参数35</li>
-        <li>列表参数36</li>
-        <li>列表参数37</li>
-        <li>列表参数38</li>
-        <li>列表参数39</li>
-        <li>列表参数40</li>
-        <li>列表参数41</li>
-        <li>列表参数42</li>
-        <li>列表参数43</li>
-        <li>列表参数44</li>
-        <li>列表参数45</li>
-        <li>列表参数46</li>
-        <li>列表参数47</li>
-        <li>列表参数48</li>
-        <li>列表参数49</li>
-        <li>列表参数50</li>
-        <li>列表参数51</li>
-        <li>列表参数52</li>
-        <li>列表参数53</li>
-        <li>列表参数54</li>
-        <li>列表参数55</li>
-        <li>列表参数56</li>
-        <li>列表参数57</li>
-        <li>列表参数58</li>
-        <li>列表参数59</li>
-        <li>列表参数60</li>
-        <li>列表参数61</li>
-        <li>列表参数62</li>
-        <li>列表参数63</li>
-        <li>列表参数64</li>
-        <li>列表参数65</li>
-        <li>列表参数66</li>
-        <li>列表参数67</li>
-        <li>列表参数68</li>
-        <li>列表参数69</li>
-        <li>列表参数70</li>
-        <li>列表参数71</li>
-        <li>列表参数72</li>
-        <li>列表参数73</li>
-        <li>列表参数74</li>
-        <li>列表参数75</li>
-        <li>列表参数76</li>
-        <li>列表参数77</li>
-        <li>列表参数78</li>
-        <li>列表参数79</li>
-        <li>列表参数80</li>
-        <li>列表参数81</li>
-        <li>列表参数82</li>
-        <li>列表参数83</li>
-        <li>列表参数84</li>
-        <li>列表参数85</li>
-        <li>列表参数86</li>
-        <li>列表参数87</li>
-        <li>列表参数88</li>
-        <li>列表参数89</li>
-        <li>列表参数90</li>
-        <li>列表参数91</li>
-        <li>列表参数92</li>
-        <li>列表参数93</li>
-        <li>列表参数94</li>
-        <li>列表参数95</li>
-        <li>列表参数96</li>
-        <li>列表参数97</li>
-        <li>列表参数98</li>
-        <li>列表参数99</li>
-        <li>列表参数100</li>
-      </ul>
-    </scroll>
+  <div id="profile">
+    <nav-bar class="nav-bar"><div slot="center">商城</div></nav-bar>
+    <section class="account">
+      <div class="account-item">
+        <div class="number"><span class="balance">0.00</span>元</div>
+        <div class="account-info">我的余额</div>
+      </div>
+      <div class="account-item">
+        <div class="number"><span class="balance">0</span>个</div>
+        <div class="account-info">我的优惠</div>
+      </div>
+      <div class="account-item">
+        <div class="number"><span class="balance">0</span>分</div>
+        <div class="account-info">我的积分</div>
+      </div>
+    </section>
+    <div id="list">
+      <div class="item" style="margin-top:12px;">
+        <span class="icon">
+          <img src="~assets/images/profile/message.svg" alt="" />
+        </span>
+        <div class="info">我的消息</div>
+      </div>
+      <div class="item">
+        <span class="icon">
+          <img src="~assets/images/profile/shopping.svg" alt="" />
+        </span>
+        <div class="info">积分商城</div>
+      </div>
+      <div class="item">
+        <span class="icon">
+          <img src="~assets/images/profile/vip.svg" alt="" />
+        </span>
+        <div class="info">会员卡</div>
+      </div>
+      <div class="item" style="margin-top:12px;" @click="toCart">
+        <span class="icon">
+          <img src="~assets/images/profile/cart.svg" alt="" />
+        </span>
+        <div class="info">我的购物车</div>
+      </div>
+      <div class="item">
+        <span class="icon">
+          <img src="~assets/images/profile/pointer.svg" alt="" />
+        </span>
+        <div class="info">下载购物APP</div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import Scroll from "components/common/scroll/Scroll";
+import NavBar from "components/common/navbar/NavBar";
+
 export default {
   name: "Profile",
   components: {
-    Scroll,
+    NavBar,
   },
-};
+  data: function() {
+    return {
+      orderList: [
+        { icon: "#order", iconColor: "#ff8198", info: "我的消息" },
+        { icon: "#point", iconColor: "#fc7b53", info: "积分商城" },
+        { icon: "#vip", iconColor: "#ffc636", info: "会员卡" },
+      ],
+      serviceList: [
+        { icon: "#service", iconColor: "#ff8198", info: "我的购物车" },
+        { icon: "#download", iconColor: "#ff8198", info: "下载购物APP" },
+      ],
+    }
+  },
+  mounted: function() {},
+  methods:{
+    toCart(){
+      this.$router.push("/cart")
+    }
+  }
+}
 </script>
 
 <style scoped>
-.content{
-  height: 300px;
-  background-color: red;
-  overflow: hidden;
+#profile {
+  background-color: #f2f2f2;
+}
 
+.nav-bar {
+  background-color: var(--color-tint);
+  font-weight: 700;
+  color: #fff;
+}
+
+.account {
+  display: flex;
+}
+#list {
+  background-color: #f2f2f2;
+  font-size: 15px;
+  color: #333;
+}
+
+#list .item {
+  height: 45px;
+  line-height: 45px;
+  background-color: #fff;
+}
+#list .icon{
+  text-align: center;
+  float: left;
+  margin-left: 15px;
+}
+#list .info{
+  margin-left: 40px;
+}
+#list img {
+  width: 18px;
+  height: 18px;
+
+}
+.account-item {
+  width: 100%;
+  background-color: #fff;
+  margin-right: 1px;
+  text-align: center;
+}
+
+.account-item:last-of-type {
+  margin-right: 0;
+}
+
+.account-item {
+  color: #666;
+  font-size: 13px;
+  padding: 18px;
+}
+
+.account-item .balance {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ff5f3e;
+}
+
+.account-info {
+  margin-top: 6px;
+}
+
+.order-list,
+.service-list {
+  margin-top: 12px;
 }
 </style>
